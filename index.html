@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2025!</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            overflow: hidden;
+        }
+        svg {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+        text {
+            fill: url(#gradient);
+            font-size: 5em;
+            font-family: 'Arial', sans-serif;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 255, 0, 1));
+            }
+        }
+        .glow {
+            animation: glow 2s infinite;
+        }
+        @keyframes confetti {
+            0% {
+                transform: translateY(-100%) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .particle {
+            animation: confetti 5s linear infinite;
+            transform-origin: center;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .letter {
+            animation: fadeIn 0.5s forwards;
+        }
+        .firework {
+            animation: explode 2s ease-out infinite;
+        }
+        @keyframes explode {
+            0% {
+                r: 0;
+                opacity: 1;
+            }
+            100% {
+                r: 100;
+                opacity: 0;
+            }
+        }
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        .star {
+            animation: twinkle 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+        <!-- Gradient for Text -->
+        <defs>
+            <radialGradient id="gradient" gradientTransform="rotate(90)">
+                <stop offset="0%" stop-color="#ff007f" />
+                <stop offset="50%" stop-color="#ffdf00" />
+                <stop offset="100%" stop-color="#a5e8e0" />
+            </radialGradient>
+        </defs>
+
+        <!-- Glowing Text -->
+        <text x="50%" y="40%" class="glow">Happy New Year</text>
+        <text x="50%" y="60%" class="glow">2025!</text>
+
+        <!-- Confetti Particles -->
+        <g id="particles">
+            <!-- Create random confetti -->
+            <circle class="particle" r="10" fill="#ff007f" cx="100" cy="0" style="animation-delay: 0s;"></circle>
+            <circle class="particle" r="20" fill="#00ffdf" cx="200" cy="0" style="animation-delay: 0.5s;"></circle>
+            <rect class="particle" width="40" height="40" fill="#ffdf00" x="300" y="0" style="animation-delay: 1s;"></rect>
+            <polygon class="particle" points="400,0 405,10 395,10" fill="#ffffff" style="animation-delay: 1.5s;"></polygon>
+            <circle class="particle" r="10" fill="#00ffdf" cx="500" cy="0" style="animation-delay: 2s;"></circle>
+            <rect class="particle" width="30" height="30" fill="#ff007f" x="600" y="0" style="animation-delay: 2.5s;"></rect>
+            <circle class="particle" r="15" fill="#ffffff" cx="700" cy="0" style="animation-delay: 3s;"></circle>
+        </g>
+
+        <!-- Fireworks -->
+        <circle class="firework" cx="200" cy="300" r="0" fill="#ff007f"></circle>
+        <circle class="firework" cx="600" cy="200" r="0" fill="#ffdf00"></circle>
+        <circle class="firework" cx="400" cy="400" r="0" fill="#00ffdf"></circle>
+
+        <!-- Twinkling Stars -->
+        <g id="stars">
+            <circle class="star" cx="50" cy="50" r="2" fill="#ffffff"></circle>
+            <circle class="star" cx="750" cy="100" r="3" fill="#ffffff"></circle>
+            <circle class="star" cx="400" cy="50" r="2" fill="#ffffff"></circle>
+            <circle class="star" cx="600" cy="500" r="3" fill="#ffffff"></circle>
+            <circle class="star" cx="200" cy="450" r="2" fill="#ffffff"></circle>
+        </g>
+    </svg>
+</body>
+</html>
